@@ -56,27 +56,22 @@ public class FindElementTests {
     @Test
     public void findElementByXpath() {
         //tagName == //tagName
-        // driver.findElement(By.cssSelector("h1"));
+        //driver.findElement(By.tagName("h1"));
         driver.findElement(By.xpath("//h1"));
-        //id -> //tag[@id = 'city']
-        // driver.findElement(By.id("city"));
-        driver.findElement(By.cssSelector("//*[@id = 'city]"));
-        //className -> //tag[@class = 'class name']
-        // driver.findElement(By.id("navigation-link"));
-        driver.findElement(By.cssSelector("//*[@class='navigation-link']"));
-        // any -> //*[@attr='par']
-        driver.findElement(By.cssSelector("//*[@href='/search']"));
+        //id -> //tag[@id='city']
+        //driver.findElement(By.id("city"));
+        driver.findElement(By.xpath("//*[@id='city']"));
+        //className -> //tag[@class='class name']
+        // driver.findElement(By.className("navigation-link"));
+        driver.findElement(By.xpath("//*[@class='navigation-link']"));
+        //any -> //*[@attr='par']
+        driver.findElement(By.xpath("//*[@href='/search']"));
         //by text
         driver.findElement(By.xpath("//*[text()='Find your car now!']"));
         driver.findElement(By.xpath("//*[.='Find your car now!']"));
-        driver.findElement(By.xpath("//*[contains(.,'your car now!']"));
-
+        driver.findElement(By.xpath("//*[contains(.,'your car now!')]"));
     }
 
-    @AfterMethod
-    public void tearDown() {
-        driver.quit();
-    }
 
     @Test
     public void findElementByCssSelectorTest() {
@@ -91,6 +86,11 @@ public class FindElementTests {
         driver.findElement(By.cssSelector(".navigation-link"));
         // any -> [attr = 'paar']
         driver.findElement(By.cssSelector("[href='/search']"));
+    }
+
+    @AfterMethod
+    public void tearDown() {
+        driver.quit();
     }
 
 }

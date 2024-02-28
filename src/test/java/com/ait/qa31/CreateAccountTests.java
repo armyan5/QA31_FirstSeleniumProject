@@ -11,7 +11,8 @@ public class CreateAccountTests extends TestBase {
 
         clickOnIcoRegister();
         clickOnGender();
-        fillContactForm("Arman", "Hakobyan", "Arm1030@gm.com", "Ar*1020man");
+        fillContactForm(new Contact().setFirstName("Arman").setLastName("Hakobyan").setEmail("Arm1030@gm.com")
+                        .setPassword("Ar*1020man"));
         clickOnRegisterButton();
         Assert.assertTrue(isElementPresent(By.xpath("//*[@class='ico-logout']")));
 

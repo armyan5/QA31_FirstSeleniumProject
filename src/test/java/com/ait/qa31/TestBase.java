@@ -60,12 +60,12 @@ public class TestBase {
         driver.findElement(By.xpath(text));
     }
 
-    public void fillContactForm(String FirstName, String LastName, String Email, String Password) {
-        type(By.name("FirstName"), FirstName);
-        type(By.name("LastName"), LastName);
-        type(By.name("Email"), Email);
-        type(By.name("Password"), Password);
-        type(By.name("ConfirmPassword"), Password);
+    public void fillContactForm(Contact user) {
+        type(By.name("FirstName"), user.getFirstName());
+        type(By.name("LastName"), user.getLastName());
+        type(By.name("Email"), user.getEmail());
+        type(By.name("Password"), user.getPassword());
+        type(By.name("ConfirmPassword"), user.getPassword());
     }
 
     public void clickOnIcoRegister() {
@@ -78,5 +78,9 @@ public class TestBase {
 
     public void clickOnGender() {
         click(By.cssSelector("#gender-male"));
+    }
+
+    public void clickIcoLogin(String locator) {
+        click(locator);
     }
 }

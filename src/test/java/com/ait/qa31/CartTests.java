@@ -8,10 +8,10 @@ public class CartTests extends TestBase {
 
     @Test
     public void loginPositiveTest() {
-        click(".ico-login");
-        click(".email");
+        clickIcoLogin(".ico-login");
+        clickIcoLogin(".email");
         type("Arm1030@gm.com", ".email");
-        click(".password");
+        clickIcoLogin(".password");
         type("Ar*1020man", ".password");
         clickLoginButton();
     }

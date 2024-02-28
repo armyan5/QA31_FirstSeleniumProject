@@ -3,10 +3,8 @@ package com.ait.qa31;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
 
 import java.time.Duration;
 
@@ -22,14 +20,63 @@ public class TestBase {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
     }
 
-
     @AfterMethod(enabled = false)
     public void tearDown() {
         driver.quit();
     }
 
     public boolean isElementPresent(By locator) {
-        return driver.findElements(locator).size()>0;
+        return driver.findElements(locator).size() > 0;
     }
 
+    public void type(By locator, String text) {
+        click(locator);
+        driver.findElement(locator).clear();
+        driver.findElement(locator).sendKeys(text);
+    }
+
+    public void click(By locator) {
+        driver.findElement(locator).click();
+    }
+
+    public void clickLoginButton() {
+        driver.findElement(By.xpath("//*[@class='button-1 login-button']")).click();
+    }
+
+    public void type(String text, String locator) {
+        driver.findElement(By.cssSelector(locator)).clear();
+        driver.findElement(By.cssSelector(locator)).sendKeys(text);
+    }
+
+    public void click(String locator) {
+        driver.findElement(By.cssSelector(locator)).click();
+    }
+
+    public void findElementByCss(String text) {
+        driver.findElement(By.cssSelector(text));
+    }
+
+    public void findElementByXpath(String text) {
+        driver.findElement(By.xpath(text));
+    }
+
+    public void fillContactForm(String FirstName, String LastName, String Email, String Password) {
+        type(By.name("FirstName"), FirstName);
+        type(By.name("LastName"), LastName);
+        type(By.name("Email"), Email);
+        type(By.name("Password"), Password);
+        type(By.name("ConfirmPassword"), Password);
+    }
+
+    public void clickOnIcoRegister() {
+        click(By.cssSelector(".ico-register"));
+    }
+
+    public void clickOnRegisterButton() {
+        click(By.name("register-button"));
+    }
+
+    public void clickOnGender() {
+        click(By.cssSelector("#gender-male"));
+    }
 }

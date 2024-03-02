@@ -16,7 +16,7 @@ public class CreateAccountTests extends TestBase {
 
     @BeforeMethod
     public void precondition() {
-        if (!isLoginLinkPresent()) ;
+        isLoginLinkPresent();
     }
 
     @Test

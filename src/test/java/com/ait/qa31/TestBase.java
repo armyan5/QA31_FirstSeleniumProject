@@ -25,6 +25,10 @@ public class TestBase {
         driver.quit();
     }
 
+    public boolean isLoginLinkPresent() {
+        return isElementPresent(By.cssSelector("[href='/login']"));
+    }
+
     public boolean isElementPresent(By locator) {
         return driver.findElements(locator).size() > 0;
     }
@@ -80,7 +84,15 @@ public class TestBase {
         click(By.cssSelector("#gender-male"));
     }
 
-    public void clickIcoLogin(String locator) {
+    public void clickIcoLogin(By locator) {
         click(locator);
+    }
+
+    public void isLoginPresent() {
+        clickIcoLogin(By.cssSelector(".email"));
+        type("Arm1030@gm.com", ".email");
+        clickIcoLogin(By.cssSelector(".password"));
+        type("Ar*1020man", ".password");
+        clickLoginButton();
     }
 }

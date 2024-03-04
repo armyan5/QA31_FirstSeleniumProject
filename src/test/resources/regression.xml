@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Regression" verbose="1">
+    <test name="Regression">
+        <classes>
+            <class name="com.ait.qa31.CreateAccountTests">
+                <methods>
+                    <exclude name=".*Provider.*"/>
+                </methods>
+            </class>
+            <class name="com.ait.qa31.LoginTests"/>
+        </classes>
+    </test>
+
+</suite>
